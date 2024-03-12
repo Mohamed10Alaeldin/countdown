@@ -1,10 +1,11 @@
-let intervalId; // Global variable to hold the interval ID
+let intervalId; // existing interval ID
 
 function countdown(endDate) {
   const now = new Date().getTime();
   if (endDate < now) {
+    // if the endDate in the past
     alert("Please select a future date.");
-    return; // Stop the countdown if the endDate is in the past
+    return;
   }
 
   clearInterval(intervalId); // Clear any existing countdown
@@ -16,7 +17,7 @@ function countdown(endDate) {
       clearInterval(intervalId); // Stop the interval if the countdown reaches 0
       return;
     }
-
+    // time calculations
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -30,7 +31,7 @@ function countdown(endDate) {
     document.getElementById("seconds-value").textContent = formatTime(seconds);
   }, 1000);
 }
-
+// just for better formatting
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
 }
@@ -43,4 +44,5 @@ document
 
     countdown(endDate);
     // document.getElementById("countdown-date").value = "";
+    // the above commented line reset the countdown-date every time you click the button
   });
