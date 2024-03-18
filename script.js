@@ -2,10 +2,28 @@ let intervalId; // existing interval ID
 
 function countdown(endDate) {
   const now = new Date().getTime();
-  if (endDate < now) {
+  if (endDate < now || isNaN(endDate)) {
     // if the endDate in the past
-    alert("Please select a future date.");
+    showModal("Please select a valid date.");
     return;
+  }
+
+  function showModal(message) {
+    var modal = document.getElementById("modal");
+    var modalMessage = document.getElementById("modal-message");
+    modalMessage.innerText = message;
+    modal.style.display = "block";
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
   }
 
   clearInterval(intervalId); // Clear any existing countdown

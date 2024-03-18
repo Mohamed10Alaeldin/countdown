@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown Timer</title>
     <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://kit.fontawesome.com/188222cb55.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="timer-container">
-      <h1>Countdown Timer</h1>
+      <h1>Countdown Timer <i class="fa-regular fa-hourglass-half"></i></h1>
       <div id="timer">
         <div id="days" class="timer-box">
           <span id="days-value">00</span>
@@ -31,6 +35,12 @@
         <label for="countdown-date">Set Countdown Date & Time:</label>
         <input type="datetime-local" id="countdown-date" />
         <button id="start-countdown">Start Countdown</button>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-message"></p>
       </div>
     </div>
 
